@@ -7,7 +7,6 @@ group = "io.deffun"
 version = "0.0.1-SNAPSHOT"
 
 repositories {
-    mavenCentral()
     maven {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/AlexVoin04/snatch-kt")
@@ -16,6 +15,7 @@ repositories {
             password = System.getenv("GITHUB_TOKEN")
         }
     }
+    mavenCentral()
 }
 
 dependencies {
