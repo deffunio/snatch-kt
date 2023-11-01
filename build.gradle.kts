@@ -6,23 +6,16 @@ plugins {
 group = "io.deffun"
 version = "0.1"
 
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components.java)
+repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/AlexVoin04/snatch-kt")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
         }
     }
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            setUrl(uri("https://maven.pkg.github.com/AlexVoin04/snatch-kt"))
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-        mavenCentral()
-    }
+    mavenCentral()
 }
 
 
